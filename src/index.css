@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #FF8C00;
+  --primary-light: #FFA533;
+  --primary-dark: #CC7000;
+  --secondary: #1A1A1A;
+  --secondary-light: #333333;
+  --accent: #D3D3D3;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  direction: rtl;
+}
+
+/* Button Styles */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform;
+}
+
+.btn:active {
+  @apply scale-95;
+}
+
+.btn-primary {
+  @apply btn bg-primary text-white hover:bg-primary-dark shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply btn bg-secondary text-white hover:bg-secondary-light shadow-lg hover:shadow-xl;
+}
+
+.btn-outline {
+  @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+.btn-white {
+  @apply btn bg-white text-secondary hover:bg-gray-50 shadow-lg hover:shadow-xl;
+}
+
+.btn-danger {
+  @apply btn bg-red-500 text-white hover:bg-red-600 shadow-lg hover:shadow-xl;
+}
+
+.btn-success {
+  @apply btn bg-green-500 text-white hover:bg-green-600 shadow-lg hover:shadow-xl;
+}
+
+.btn-icon {
+  @apply p-2 rounded-full transition-all duration-300 hover:scale-110;
+}
+
+.btn-icon-primary {
+  @apply btn-icon bg-primary text-white hover:bg-primary-dark shadow-lg hover:shadow-xl;
+}
+
+.btn-icon-secondary {
+  @apply btn-icon bg-secondary text-white hover:bg-secondary-light shadow-lg hover:shadow-xl;
+}
+
+.btn-icon-outline {
+  @apply btn-icon border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply shadow-[0_0_15px_rgba(255,140,0,0.5)];
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes wave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    transform: translateX(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% { 
+    transform: translateX(100%) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-scale {
+  animation: scale 4s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 3s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 3s linear infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Animation Delays */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Card Styles */
+.card-3d {
+  @apply transform-gpu transition-all duration-300;
+}
+
+.card-3d:hover {
+  @apply -translate-y-2 shadow-xl;
+}
+
+/* Shadow Effects */
+.shadow-dynamic {
+  @apply shadow-lg transition-shadow duration-300;
+}
+
+.shadow-dynamic:hover {
+  @apply shadow-xl;
+}
+
+/* Gradient Effects */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-primary;
+  background-size: 200% 200%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Focus Effects */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300;
+}
+
+/* Sparkle Effect */
+.sparkle {
+  @apply relative overflow-hidden;
+}
+
+.sparkle::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full rotate-45;
+  animation: sparkle 3s ease-in-out infinite;
+}
